@@ -18,13 +18,13 @@ function local_dbnotification_coursemodule_standard_elements($form, $mform) {
         throw new moodle_exception("Invaid data module id {$current->id}");
     }
 
-    $mform->addElement('header', 'local_dbnotification_header', '[[NOTIFICATION]]');
+    $mform->addElement('header', 'local_dbnotification_header', get_string('notificationsettings', 'local_dbnotification'));
 
     $targetoptions = [
-        LOCAL_DBNOTIFICATION_TARGET_NONE => '[[NONE]]',
-        LOCAL_DBNOTIFICATION_TARGET_GROUP => '[[GROUP]]'
+        LOCAL_DBNOTIFICATION_TARGET_NONE => get_string('target_none', 'local_dbnotification'),
+        LOCAL_DBNOTIFICATION_TARGET_GROUP => get_string('target_group', 'local_dbnotification')
     ];
-    $mform->addElement('select', 'local_dbnotification_target', '[[TARGET]]', $targetoptions);
+    $mform->addElement('select', 'local_dbnotification_target', get_string('target', 'local_dbnotification'), $targetoptions);
     $mform->setDefault('local_dbnotification_target', data_get_config($datamodule, 'local_dbnotification_target', LOCAL_DBNOTIFICATION_TARGET_NONE));
 }
 
